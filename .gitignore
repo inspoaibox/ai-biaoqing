@@ -2,6 +2,7 @@ node_modules/
 dist/
 data/
 __pycache__/
+ecosystem.config.cjs
 .env
 .env.*
 !.env.example

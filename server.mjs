@@ -169,7 +169,8 @@ function isEditEndpointUnsupported(error) {
 
 function runLocalizer(frames) {
   return new Promise((resolve, reject) => {
-    const child = spawn('python', ['locate.py'], { windowsHide: true })
+    const pythonBin = process.env.STICKER_PYTHON_BIN || (process.platform === 'win32' ? 'python' : 'python3')
+    const child = spawn(pythonBin, ['locate.py'], { windowsHide: true })
     let stdout = ''
     let stderr = ''
     child.stdout.on('data', (chunk) => { stdout += chunk.toString() })
